@@ -30,32 +30,32 @@ The program uses dynamic memory allocation for creating new books and managing t
 
 Here is an example of how to use the library management system:
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-
-int main(void) 
-{
-    book_t *library = NULL;
-
-    add_book(&library, 1, "Robin Williams", "How to Make a Million Euros");
-    add_book(&library, 2, "Isaac Asimov", "Foundation");
-    add_book(&library, 3, "George Orwell", "1984");
-    printf("All books in the library:\n");
-    display_books(library);
-    book_t *book = find_book(library, 2);
-    if (book != NULL) {
-        printf("\nFound book: %s by %s\n", book->title, book->author);
-    } else {
-        printf("\nBook not found.\n");
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    
+    
+    int main(void) 
+    {
+        book_t *library = NULL;
+        
+        add_book(&library, 1, "Robin Williams", "How to Make a Million Euros");
+        add_book(&library, 2, "Isaac Asimov", "Foundation");
+        add_book(&library, 3, "George Orwell", "1984");
+        printf("All books in the library:\n");
+        display_books(library);
+        book_t *book = find_book(library, 2);
+        if (book != NULL) {
+            printf("\nFound book: %s by %s\n", book->title, book->author);
+        } else {
+            printf("\nBook not found.\n");
+        }
+        printf("\nDeleting book with ID 2.\n");
+        delete_book(&library, 2);
+        printf("\nBooks after deletion:\n");
+        display_books(library);
+        return 0;
     }
-    printf("\nDeleting book with ID 2.\n");
-    delete_book(&library, 2);
-    printf("\nBooks after deletion:\n");
-    display_books(library);
-    return 0;
-}
 
 ## TO-DO
 -Make the programm interactive
